@@ -32,7 +32,7 @@ export default function Home() {
       </section>
 
       <Image
-        src="/asse ts/images/onboarding-img.png"
+        src="/assets/images/onboarding-img.png"
         alt="patient"
         width={1000}
         height={1000}
