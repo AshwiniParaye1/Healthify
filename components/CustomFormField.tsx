@@ -43,7 +43,8 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
     iconSrc,
     placeholder,
     showTimeSelect,
-    dateFormat
+    dateFormat,
+    renderSkeleton
   } = props;
 
   switch (fieldType) {
@@ -69,6 +70,7 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
           </FormControl>
         </div>
       );
+
     case FormFieldType.PHONE_INPUT:
       return (
         <FormControl>
@@ -107,6 +109,10 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
           </FormControl>
         </div>
       );
+
+    case FormFieldType.SKELETON:
+      return renderSkeleton ? renderSkeleton(field) : null;
+
     default:
       break;
   }
