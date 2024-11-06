@@ -205,22 +205,20 @@ const RegisterForm = ({ user }: { user: User }) => {
 
         {/* insurance information */}
         <div className="flex flex-col gap-6 xl:flex-row">
-          <div className="flex flex-col gap-6 xl:flex-row">
-            <CustomFormField
-              control={form.control}
-              fieldType={FormFieldType.INPUT}
-              name="insuranceProvider"
-              label="Insurance Provider"
-              placeholder="Blue Cross Blue Shield"
-            />
-            <CustomFormField
-              control={form.control}
-              fieldType={FormFieldType.INPUT}
-              name="insurancePolicyNumber"
-              label="Insurance policy number"
-              placeholder="XYZ-1234-5678"
-            />
-          </div>
+          <CustomFormField
+            control={form.control}
+            fieldType={FormFieldType.INPUT}
+            name="insuranceProvider"
+            label="Insurance Provider"
+            placeholder="Blue Cross Blue Shield"
+          />
+          <CustomFormField
+            control={form.control}
+            fieldType={FormFieldType.INPUT}
+            name="insurancePolicyNumber"
+            label="Insurance policy number"
+            placeholder="XYZ-1234-5678"
+          />
         </div>
 
         {/* allergies and medications */}
@@ -241,13 +239,23 @@ const RegisterForm = ({ user }: { user: User }) => {
           />
         </div>
 
-        <div className="flex flex-col gap-6 xl:flex-row">{/* sdfsdf */}</div>
-
-        <div className="flex flex-col gap-6 xl:flex-row">{/* sdfsdf */}</div>
-
-        <div className="flex flex-col gap-6 xl:flex-row">{/* sdfsdf */}</div>
-
-        <div className="flex flex-col gap-6 xl:flex-row">{/* sdfsdf */}</div>
+        {/* family and past medical history */}
+        <div className="flex flex-col gap-6 xl:flex-row">
+          <CustomFormField
+            control={form.control}
+            fieldType={FormFieldType.TEXTAREA}
+            name="familyMedicalHistory"
+            label="Family Medical History"
+            placeholder="Mother has diabetes, father has high blood pressure"
+          />
+          <CustomFormField
+            control={form.control}
+            fieldType={FormFieldType.TEXTAREA}
+            name="pastMedicalHistory"
+            label="Past Medical History"
+            placeholder="High blood pressure, Diabetes"
+          />
+        </div>
 
         <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>
       </form>
