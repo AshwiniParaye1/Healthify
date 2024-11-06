@@ -176,6 +176,7 @@ const RegisterForm = ({ user }: { user: User }) => {
           </div>
         </section>
 
+        {/* primary physician */}
         <div className="flex flex-col gap-6 xl:flex-row">
           <CustomFormField
             control={form.control}
@@ -202,7 +203,43 @@ const RegisterForm = ({ user }: { user: User }) => {
           </CustomFormField>
         </div>
 
-        <div className="flex flex-col gap-6 xl:flex-row">{/* sdfsdf */}</div>
+        {/* insurance information */}
+        <div className="flex flex-col gap-6 xl:flex-row">
+          <div className="flex flex-col gap-6 xl:flex-row">
+            <CustomFormField
+              control={form.control}
+              fieldType={FormFieldType.INPUT}
+              name="insuranceProvider"
+              label="Insurance Provider"
+              placeholder="Blue Cross Blue Shield"
+            />
+            <CustomFormField
+              control={form.control}
+              fieldType={FormFieldType.INPUT}
+              name="insurancePolicyNumber"
+              label="Insurance policy number"
+              placeholder="XYZ-1234-5678"
+            />
+          </div>
+        </div>
+
+        {/* allergies and medications */}
+        <div className="flex flex-col gap-6 xl:flex-row">
+          <CustomFormField
+            control={form.control}
+            fieldType={FormFieldType.TEXTAREA}
+            name="allergies"
+            label="Allergies (if any)"
+            placeholder="Peanuts, Pollens, Soybeans"
+          />
+          <CustomFormField
+            control={form.control}
+            fieldType={FormFieldType.TEXTAREA}
+            name="currentMedications"
+            label="Current medications (if any)"
+            placeholder="Paracetamol, Ibuprofen"
+          />
+        </div>
 
         <div className="flex flex-col gap-6 xl:flex-row">{/* sdfsdf */}</div>
 
