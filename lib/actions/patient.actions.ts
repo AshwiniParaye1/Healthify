@@ -42,9 +42,10 @@ export const createUser = async (user: CreateUserParams) => {
 // GET USER
 export const getUser = async (userId: string) => {
   try {
-    console.log("getting user ===== ", users.list());
+    const allUsers = await users.list([Query.equal("$id", [userId])]);
+    const user = allUsers.total > 0 ? allUsers.users[0] : null;
 
-    const user = await users.get(userId);
+    console.log("updated User: ", parseStringify(user));
 
     return parseStringify(user);
   } catch (error) {
