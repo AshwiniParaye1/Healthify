@@ -45,8 +45,6 @@ export const getUser = async (userId: string) => {
     const allUsers = await users.list([Query.equal("$id", [userId])]);
     const user = allUsers.total > 0 ? allUsers.users[0] : null;
 
-    console.log("updated User: ", parseStringify(user));
-
     return parseStringify(user);
   } catch (error) {
     console.error(
