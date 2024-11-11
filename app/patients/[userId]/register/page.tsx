@@ -7,6 +7,9 @@ import React from "react";
 const Register = async ({ params: { userId } }: SearchParamProps) => {
   const user = await getUser(userId);
 
+  console.log("user ID ===== ", userId);
+  console.log("user  ===== ", user);
+
   return (
     <div className="flex h-screen max-h-screen">
       <section className="remove-scrollbar container">
