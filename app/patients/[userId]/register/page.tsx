@@ -1,7 +1,10 @@
 import RegisterForm from "@/components/forms/RegisterForm";
 import { getUser } from "@/lib/actions/patient.actions";
+import { users } from "@/lib/appwrite.config";
+import { parseStringify } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
+import { Query } from "node-appwrite";
 import React from "react";
 
 const Register = async ({ params: { userId } }: SearchParamProps) => {

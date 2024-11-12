@@ -1,4 +1,6 @@
-import * as sdk from "node-appwrite";
+// import * as sdk from "node-appwrite";
+
+import { Client, Databases, Messaging, Storage, Users } from "node-appwrite";
 
 // Destructure and log environment variables
 export const {
@@ -12,7 +14,7 @@ export const {
   NEXT_PUBLIC_ENDPOINT: ENDPOINT
 } = process.env;
 
-const client = new sdk.Client();
+const client = new Client();
 
 client
   .setEndpoint(ENDPOINT!)
@@ -20,7 +22,7 @@ client
   .setKey(API_KEY!)
   .setSelfSigned(true);
 
-export const databases = new sdk.Databases(client);
-export const users = new sdk.Users(client);
-export const messaging = new sdk.Messaging(client);
-export const storage = new sdk.Storage(client);
+export const databases = new Databases(client);
+export const users = new Users(client);
+export const messaging = new Messaging(client);
+export const storage = new Storage(client);

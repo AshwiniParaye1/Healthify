@@ -42,8 +42,13 @@ export const createUser = async (user: CreateUserParams) => {
 // GET USER
 export const getUser = async (userId: string) => {
   try {
-    const allUsers = await users.list([Query.equal("$id", [userId])]);
-    const user = allUsers.total > 0 ? allUsers.users[0] : null;
+    // Fetch all users
+    const allUsers = await users.list();
+
+    // console.log("allUsers====", parseStringify(allUsers.users[0].$id));
+
+    // Manually filter for the specific userId
+    const user = await parseStringify(allUsers.users[0].$id);
 
     return parseStringify(user);
   } catch (error) {
@@ -63,13 +68,10 @@ export const registerPatient = async ({
     let file;
 
     if (identificationDocument) {
-      const inputFile =
-        identificationDocument &&
-        InputFile.fromBuffer(
-          identificationDocument?.get("blobFile") as Blob,
-          identificationDocument?.get("fileName") as string
-        );
-
+      const inputFile = InputFile.fromBuffer(
+        identificationDocument.get("blobFile") as Blob,
+        identificationDocument.get("fileName") as string
+      );
       file = await storage.createFile(BUCKET_ID!, ID.unique(), inputFile);
     }
 

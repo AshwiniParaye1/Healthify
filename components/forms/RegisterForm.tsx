@@ -88,8 +88,6 @@ const RegisterForm = ({ user }: { user: User }) => {
 
       const newPatient = await registerPatient(patient);
 
-      console.log("user====", user);
-
       if (newPatient) {
         router.push(`/patients/${user.$id}/new-appointment`);
       }
